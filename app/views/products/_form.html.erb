@@ -1,0 +1,41 @@
+<%= form_with model: @product do |form| %>
+
+  <%= @product.errors.full_messages.each do |error| %>
+    <div>
+      <%= error %> 
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :title %>
+    <%= form.text_field :title, placeholder: '¿Qué quieres vender?', class: "rounded-2xl border-gray-200 mb-4 w-full" %>
+  </div>
+
+  <div>
+    <%= form.label :description %>
+    <%= form.text_area :description, placeholder: '¿Puedes describir el producto?', class: "rounded-2xl border-gray-200 mb-4 w-full", rows: 3 %>  
+  </div>
+
+  <div>
+    <%= form.label :price %>
+    <%= form.number_field :price, placeholder: '¿Cuánto cuesta?', class: "rounded-2xl border-gray-200 mb-4 w-full" %>  
+  </div>
+  
+  <div>
+    <%= form.label :category_id %>
+    <%= form.collection_select :category_id, Category.all.order(name: :asc), :id, :name, { prompt: '¿En qué categoría encaja mejor?' }, { class: "rounded-2xl border-gray-200 mb-4 w-full text-gray-500"} %>
+
+  </div>
+
+  <p></p>
+
+  <div>
+    <%= form.label :photo %>
+    <%= form.file_field :photo %>  
+  </div>
+
+  <div>
+    <%= form.submit 'Vendelo', class: "px-4 py-2 font-semibold text-sm bg-cyan-500 text-white rounded-2xl cursor-pointer shadow-sm my-4" %> 
+  </div>
+
+<% end %>

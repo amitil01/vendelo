@@ -1,0 +1,27 @@
+<%= turbo_frame_tag 'home' do %>
+	<! Productos: ->
+	<div class="font-bold text-red-600 px-4 py-2">		
+		<%= 'Usuario conectado: ' + Current.user.username %>
+	</div>
+
+	<%= form_with url: products_path, method: :get do |form| %>
+		<div class="flex my-2">
+			<%= form.number_field :min_price, placeholder: 'Precio minimo', onChange: 'this.form.requestSubmit()', value: params[:min_price], class: "w-1/3 rounded-2xl border-gray-200" %>
+			<%= form.number_field :max_price, placeholder: 'Precio maximo', onChange: 'this.form.requestSubmit()', value: params[:max_price], class: "w-1/3 rounded-2xl border-gray-200 mx-2" %>	
+			<%= form.select :order_by, options_for_select([["Recientes", "recientes"], ["Mas caros", "caros"],["Mas baratos", "baratos"]], params[:order_by]), {}, {onChange: 'this.form.requestSubmit()', class: "w-1/3 rounded-2xl border-gray-200 text-gray-500"} %> 
+		</div>
+	<% end %>
+
+	<div class="flex overflow-x-scroll gap-2 my-4">
+		<%= render(CategoryComponent.new) %>
+		<%= render(CategoryComponent.with_collection(@categories)) %> 
+	</div>
+
+	<%= turbo_frame_tag :products, class:"flex flex-col m-2" do %>
+		<%= turbo_frame_tag "products-#{@pagy.page}", class: 'products flex flex-col w-full sm:flex-row sm:flex-wrap sm:gap-x-2' do %>
+			<%= render partial: 'product', collection: @products %>
+			<%= turbo_frame_tag "products-#{@pagy.next}", class: 'products flex flex-col w-full sm:flex-row sm:flex-wrap sm:gap-x-2',  src: pagy_url_for(@pagy,@pagy.next), loading: :lazy %>	
+		<% end %>
+	<% end %>
+	
+<% end %>

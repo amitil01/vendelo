@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vendelo | Compra venta</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body class="bg-gray-200">
+
+    <%= render 'shared/header' %>
+    <%= render 'shared/flash' %>
+    <div class="lg:container lg:mx-auto">
+      <%= yield %>
+    </div>
+
+<!-- Cap #49 -->    
+    <%= turbo_frame_tag "modal" %>
+
+  </body>
+</html>
+

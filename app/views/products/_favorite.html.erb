@@ -1,0 +1,8 @@
+<div id="favorite">
+    <%  if product.favorite %>
+    	<%= link_to '💔' , favorite_path(product.id),data: {turbo_method: :delete, turbo_confirm: 'Esta seguro?'} 
+        %>	
+    <%  else %>
+        <%= link_to '💙' , favorites_path(product_id: product.id),data: {turbo_method: :post} %>
+    <% end %>
+</div>

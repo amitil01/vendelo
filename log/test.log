@@ -1,0 +1,712 @@
+  [1m[35m (8.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS `vendelo_test`[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE DATABASE `vendelo_test` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (2.5ms)[0m  [1m[35mDROP TABLE IF EXISTS `products` CASCADE[0m
+  [1m[35m (19.9ms)[0m  [1m[35mCREATE TABLE `products` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `title` varchar(255), `description` text, `price` int, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci[0m
+  [1m[35m (20.4ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (2.8ms)[0m  [1m[32mINSERT INTO `schema_migrations` (version) VALUES (20230424214442)[0m
+  [1m[35m (17.9ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'test', '2023-04-25 15:19:26.004106', '2023-04-25 15:19:26.004106')[0m
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1' LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('schema_sha1', '63f51a5def545e6a20127c8b245e4a02f7221daf', '2023-04-25 15:19:26.011972', '2023-04-25 15:19:26.011972')[0m
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixtures Load (0.5ms)[0m  [1m[31mDELETE FROM `products`;
+INSERT INTO `products` (`id`, `title`, `description`, `price`, `created_at`, `updated_at`) VALUES (980190962, 'MyString', 'MyText', 1, '2023-04-25 15:21:42.727341', '2023-04-25 15:21:42.727341'), (298486374, 'MyString', 'MyText', 1, '2023-04-25 15:21:42.727341', '2023-04-25 15:21:42.727341')[0m
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------------
+ProductsControllerTest: test_render_a_detailed_products_page
+------------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------
+ProductsControllerTest: test_render_a_list_of_products
+------------------------------------------------------
+Started GET "/products" for 127.0.0.1 at 2023-04-25 10:21:42 -0500
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  Rendered products/index.html.erb within layouts/application (Duration: 29.0ms | Allocations: 16870)
+  Rendered shared/_header.html.erb (Duration: 0.3ms | Allocations: 117)
+  Rendered layout layouts/application.html.erb (Duration: 232.6ms | Allocations: 106049)
+Completed 200 OK in 238ms (Views: 234.0ms | ActiveRecord: 0.3ms | Allocations: 112130)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixtures Load (0.2ms)[0m  [1m[31mDELETE FROM `products`;
+INSERT INTO `products` (`id`, `title`, `description`, `price`, `created_at`, `updated_at`) VALUES (236351428, 'PS4', 'Como nuevo', 150, '2023-04-25 15:31:00.382543', '2023-04-25 15:31:00.382543'), (803818265, 'Nintendo Switch', 'Le falla lector de tarjeta SD', 195, '2023-04-25 15:31:00.382543', '2023-04-25 15:31:00.382543')[0m
+  [1m[36mTRANSACTION (7.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------------
+ProductsControllerTest: test_render_a_detailed_products_page
+------------------------------------------------------------
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------
+ProductsControllerTest: test_render_a_list_of_products
+------------------------------------------------------
+Started GET "/products" for 127.0.0.1 at 2023-04-25 10:31:00 -0500
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  Rendered products/index.html.erb within layouts/application (Duration: 27.4ms | Allocations: 16895)
+  Rendered shared/_header.html.erb (Duration: 0.3ms | Allocations: 112)
+  Rendered layout layouts/application.html.erb (Duration: 58.7ms | Allocations: 50251)
+Completed 200 OK in 65ms (Views: 60.2ms | ActiveRecord: 0.3ms | Allocations: 56331)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixtures Load (0.3ms)[0m  [1m[31mDELETE FROM `products`;
+INSERT INTO `products` (`id`, `title`, `description`, `price`, `created_at`, `updated_at`) VALUES (236351428, 'PS4', 'Como nuevo', 150, '2023-04-25 15:34:36.763991', '2023-04-25 15:34:36.763991'), (803818265, 'Nintendo Switch', 'Le falla lector de tarjeta SD', 195, '2023-04-25 15:34:36.763991', '2023-04-25 15:34:36.763991')[0m
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------------
+ProductsControllerTest: test_render_a_detailed_products_page
+------------------------------------------------------------
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products` WHERE `products`.`id` = 236351428 LIMIT 1[0m
+Started GET "/products.236351428" for 127.0.0.1 at 2023-04-25 10:34:36 -0500
+Processing by ProductsController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  Rendered products/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1098)
+  Rendered shared/_header.html.erb (Duration: 0.4ms | Allocations: 112)
+  Rendered layout layouts/application.html.erb (Duration: 32.9ms | Allocations: 33989)
+Completed 200 OK in 58ms (Views: 35.4ms | ActiveRecord: 0.2ms | Allocations: 40099)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------
+ProductsControllerTest: test_render_a_list_of_products
+------------------------------------------------------
+Started GET "/products" for 127.0.0.1 at 2023-04-25 10:34:36 -0500
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  Rendered products/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 304)
+  Rendered shared/_header.html.erb (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 1.9ms | Allocations: 1801)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.2ms | Allocations: 2157)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixtures Load (0.3ms)[0m  [1m[31mDELETE FROM `products`;
+INSERT INTO `products` (`id`, `title`, `description`, `price`, `created_at`, `updated_at`) VALUES (236351428, 'PS4 Fat', 'PS4 como nuevo', 150, '2023-04-25 15:43:20.567769', '2023-04-25 15:43:20.567769'), (803818265, 'Nintendo Switch', 'Le falla lector de tarjeta SD', 195, '2023-04-25 15:43:20.567769', '2023-04-25 15:43:20.567769')[0m
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------------
+ProductsControllerTest: test_render_a_detailed_products_page
+------------------------------------------------------------
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products` WHERE `products`.`id` = 236351428 LIMIT 1[0m
+Started GET "/products.236351428" for 127.0.0.1 at 2023-04-25 10:43:20 -0500
+Processing by ProductsController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  Rendered products/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1099)
+  Rendered shared/_header.html.erb (Duration: 0.3ms | Allocations: 112)
+  Rendered layout layouts/application.html.erb (Duration: 32.3ms | Allocations: 33964)
+Completed 200 OK in 58ms (Views: 33.8ms | ActiveRecord: 0.3ms | Allocations: 40075)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------
+ProductsControllerTest: test_render_a_list_of_products
+------------------------------------------------------
+Started GET "/products" for 127.0.0.1 at 2023-04-25 10:43:20 -0500
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  Rendered products/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 305)
+  Rendered shared/_header.html.erb (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | Allocations: 1802)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.3ms | Allocations: 2155)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixtures Load (0.2ms)[0m  [1m[31mDELETE FROM `products`;
+INSERT INTO `products` (`id`, `title`, `description`, `price`, `created_at`, `updated_at`) VALUES (236351428, 'PS4 Fat', 'PS4 como nuevo', 150, '2023-04-25 15:48:51.983877', '2023-04-25 15:48:51.983877'), (803818265, 'Nintendo Switch', 'Le falla lector de tarjeta SD', 195, '2023-04-25 15:48:51.983877', '2023-04-25 15:48:51.983877')[0m
+  [1m[36mTRANSACTION (4.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------------
+ProductsControllerTest: test_render_a_detailed_products_page
+------------------------------------------------------------
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products` WHERE `products`.`id` = 236351428 LIMIT 1[0m
+Started GET "/products.236351428" for 127.0.0.1 at 2023-04-25 10:48:52 -0500
+Processing by ProductsController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  Rendered products/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1099)
+  Rendered shared/_header.html.erb (Duration: 0.3ms | Allocations: 112)
+  Rendered layout layouts/application.html.erb (Duration: 32.6ms | Allocations: 34282)
+Completed 200 OK in 60ms (Views: 34.3ms | ActiveRecord: 0.3ms | Allocations: 40392)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------
+ProductsControllerTest: test_render_a_list_of_products
+------------------------------------------------------
+Started GET "/products" for 127.0.0.1 at 2023-04-25 10:48:52 -0500
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  Rendered products/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 305)
+  Rendered shared/_header.html.erb (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | Allocations: 1802)
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.2ms | Allocations: 2155)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixtures Load (0.3ms)[0m  [1m[31mDELETE FROM `products`;
+INSERT INTO `products` (`id`, `title`, `description`, `price`, `created_at`, `updated_at`) VALUES (236351428, 'PS4 Fat', 'PS4 como nuevo', 150, '2023-04-25 15:51:10.079650', '2023-04-25 15:51:10.079650'), (803818265, 'Nintendo Switch', 'Le falla lector de tarjeta SD', 195, '2023-04-25 15:51:10.079650', '2023-04-25 15:51:10.079650')[0m
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------
+ProductsControllerTest: test_render_a_list_of_products
+------------------------------------------------------
+Started GET "/products" for 127.0.0.1 at 2023-04-25 10:51:10 -0500
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  Rendered products/index.html.erb within layouts/application (Duration: 28.4ms | Allocations: 16896)
+  Rendered shared/_header.html.erb (Duration: 0.3ms | Allocations: 112)
+  Rendered layout layouts/application.html.erb (Duration: 59.3ms | Allocations: 50346)
+Completed 200 OK in 65ms (Views: 60.7ms | ActiveRecord: 0.3ms | Allocations: 56427)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------------
+ProductsControllerTest: test_render_a_detailed_products_page
+------------------------------------------------------------
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT `products`.* FROM `products` WHERE `products`.`id` = 236351428 LIMIT 1[0m
+Started GET "/products.236351428" for 127.0.0.1 at 2023-04-25 10:51:10 -0500
+Processing by ProductsController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  Rendered products/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 266)
+  Rendered shared/_header.html.erb (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | Allocations: 1763)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.2ms | Allocations: 2195)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixtures Load (0.3ms)[0m  [1m[31mDELETE FROM `products`;
+INSERT INTO `products` (`id`, `title`, `description`, `price`, `created_at`, `updated_at`) VALUES (236351428, 'PS4 Fat', 'PS4 como nuevo', 150, '2023-04-25 15:51:43.679870', '2023-04-25 15:51:43.679870'), (803818265, 'Nintendo Switch', 'Le falla lector de tarjeta SD', 195, '2023-04-25 15:51:43.679870', '2023-04-25 15:51:43.679870')[0m
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------------
+ProductsControllerTest: test_render_a_detailed_products_page
+------------------------------------------------------------
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products` WHERE `products`.`id` = 236351428 LIMIT 1[0m
+Started GET "/products.236351428" for 127.0.0.1 at 2023-04-25 10:51:43 -0500
+Processing by ProductsController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  Rendered products/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1099)
+  Rendered shared/_header.html.erb (Duration: 0.3ms | Allocations: 112)
+  Rendered layout layouts/application.html.erb (Duration: 33.6ms | Allocations: 33956)
+Completed 200 OK in 58ms (Views: 54.3ms | ActiveRecord: 0.3ms | Allocations: 40064)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------
+ProductsControllerTest: test_render_a_list_of_products
+------------------------------------------------------
+Started GET "/products" for 127.0.0.1 at 2023-04-25 10:51:43 -0500
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  Rendered products/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 305)
+  Rendered shared/_header.html.erb (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 1.9ms | Allocations: 1802)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.2ms | Allocations: 2158)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixtures Load (0.3ms)[0m  [1m[31mDELETE FROM `products`;
+INSERT INTO `products` (`id`, `title`, `description`, `price`, `created_at`, `updated_at`) VALUES (236351428, 'PS4 Fat', 'PS4 como nuevo', 150, '2023-04-25 15:54:14.875713', '2023-04-25 15:54:14.875713'), (803818265, 'Nintendo Switch', 'Le falla lector de tarjeta SD', 195, '2023-04-25 15:54:14.875713', '2023-04-25 15:54:14.875713')[0m
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------
+ProductsControllerTest: test_render_a_list_of_products
+------------------------------------------------------
+Started GET "/products" for 127.0.0.1 at 2023-04-25 10:54:14 -0500
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  Rendered products/index.html.erb within layouts/application (Duration: 28.0ms | Allocations: 16896)
+  Rendered shared/_header.html.erb (Duration: 0.3ms | Allocations: 112)
+  Rendered layout layouts/application.html.erb (Duration: 58.5ms | Allocations: 49770)
+Completed 200 OK in 64ms (Views: 59.9ms | ActiveRecord: 0.3ms | Allocations: 55851)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------------
+ProductsControllerTest: test_render_a_detailed_products_page
+------------------------------------------------------------
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products` WHERE `products`.`id` = 236351428 LIMIT 1[0m
+Started GET "/products.236351428" for 127.0.0.1 at 2023-04-25 10:54:15 -0500
+Processing by ProductsController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  Rendered products/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 266)
+  Rendered shared/_header.html.erb (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | Allocations: 1763)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.2ms | Allocations: 2195)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixtures Load (0.3ms)[0m  [1m[31mDELETE FROM `products`;
+INSERT INTO `products` (`id`, `title`, `description`, `price`, `created_at`, `updated_at`) VALUES (236351428, 'PS4 Fat', 'PS4 como nuevo', 150, '2023-04-25 15:55:49.747334', '2023-04-25 15:55:49.747334'), (803818265, 'Nintendo Switch', 'Le falla lector de tarjeta SD', 195, '2023-04-25 15:55:49.747334', '2023-04-25 15:55:49.747334')[0m
+  [1m[36mTRANSACTION (6.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------------
+ProductsControllerTest: test_render_a_detailed_products_page
+------------------------------------------------------------
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------
+ProductsControllerTest: test_render_a_list_of_products
+------------------------------------------------------
+Started GET "/products" for 127.0.0.1 at 2023-04-25 10:55:49 -0500
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  Rendered products/index.html.erb within layouts/application (Duration: 28.1ms | Allocations: 16896)
+  Rendered shared/_header.html.erb (Duration: 0.4ms | Allocations: 112)
+  Rendered layout layouts/application.html.erb (Duration: 60.1ms | Allocations: 49806)
+Completed 200 OK in 66ms (Views: 61.6ms | ActiveRecord: 0.3ms | Allocations: 55884)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixtures Load (0.2ms)[0m  [1m[31mDELETE FROM `products`;
+INSERT INTO `products` (`id`, `title`, `description`, `price`, `created_at`, `updated_at`) VALUES (236351428, 'PS4 Fat', 'PS4 como nuevo', 150, '2023-04-25 15:56:42.512277', '2023-04-25 15:56:42.512277'), (803818265, 'Nintendo Switch', 'Le falla lector de tarjeta SD', 195, '2023-04-25 15:56:42.512277', '2023-04-25 15:56:42.512277')[0m
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------
+ProductsControllerTest: test_render_a_list_of_products
+------------------------------------------------------
+Started GET "/products" for 127.0.0.1 at 2023-04-25 10:56:42 -0500
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  Rendered products/index.html.erb within layouts/application (Duration: 30.0ms | Allocations: 16896)
+  Rendered shared/_header.html.erb (Duration: 0.3ms | Allocations: 112)
+  Rendered layout layouts/application.html.erb (Duration: 60.9ms | Allocations: 49764)
+Completed 200 OK in 66ms (Views: 62.3ms | ActiveRecord: 0.3ms | Allocations: 55845)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------------
+ProductsControllerTest: test_render_a_detailed_products_page
+------------------------------------------------------------
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT `products`.* FROM `products` WHERE `products`.`id` = 236351428 LIMIT 1[0m
+Started GET "/products.236351428" for 127.0.0.1 at 2023-04-25 10:56:42 -0500
+Processing by ProductsController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  Rendered products/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 266)
+  Rendered shared/_header.html.erb (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | Allocations: 1763)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.2ms | Allocations: 2195)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixtures Load (0.2ms)[0m  [1m[31mDELETE FROM `products`;
+INSERT INTO `products` (`id`, `title`, `description`, `price`, `created_at`, `updated_at`) VALUES (236351428, 'PS4 Fat', 'PS4 como nuevo', 150, '2023-04-25 16:02:01.560301', '2023-04-25 16:02:01.560301'), (803818265, 'Nintendo Switch', 'Le falla lector de tarjeta SD', 195, '2023-04-25 16:02:01.560301', '2023-04-25 16:02:01.560301')[0m
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------
+ProductsControllerTest: test_render_a_list_of_products
+------------------------------------------------------
+Started GET "/products" for 127.0.0.1 at 2023-04-25 11:02:01 -0500
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  Rendered products/index.html.erb within layouts/application (Duration: 26.8ms | Allocations: 16896)
+  Rendered shared/_header.html.erb (Duration: 0.3ms | Allocations: 112)
+  Rendered layout layouts/application.html.erb (Duration: 57.7ms | Allocations: 49808)
+Completed 200 OK in 63ms (Views: 59.2ms | ActiveRecord: 0.3ms | Allocations: 55889)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------------
+ProductsControllerTest: test_render_a_detailed_products_page
+------------------------------------------------------------
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products` WHERE `products`.`id` = 236351428 LIMIT 1[0m
+Started GET "/products.236351428" for 127.0.0.1 at 2023-04-25 11:02:01 -0500
+Processing by ProductsController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  Rendered products/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 266)
+  Rendered shared/_header.html.erb (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | Allocations: 1763)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.2ms | Allocations: 2195)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixtures Load (0.3ms)[0m  [1m[31mDELETE FROM `products`;
+INSERT INTO `products` (`id`, `title`, `description`, `price`, `created_at`, `updated_at`) VALUES (236351428, 'PS4 Fat', 'PS4 como nuevo', 150, '2023-04-25 16:11:17.831651', '2023-04-25 16:11:17.831651'), (803818265, 'Nintendo Switch', 'Le falla lector de tarjeta SD', 195, '2023-04-25 16:11:17.831651', '2023-04-25 16:11:17.831651')[0m
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------
+ProductsControllerTest: test_render_a_list_of_products
+------------------------------------------------------
+Started GET "/products" for 127.0.0.1 at 2023-04-25 11:11:17 -0500
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  Rendered products/index.html.erb within layouts/application (Duration: 26.7ms | Allocations: 16896)
+  Rendered shared/_header.html.erb (Duration: 0.3ms | Allocations: 112)
+  Rendered layout layouts/application.html.erb (Duration: 58.3ms | Allocations: 50300)
+Completed 200 OK in 64ms (Views: 59.8ms | ActiveRecord: 0.3ms | Allocations: 56381)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------------
+ProductsControllerTest: test_render_a_detailed_products_page
+------------------------------------------------------------
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT `products`.* FROM `products` WHERE `products`.`id` = 236351428 LIMIT 1[0m
+Started GET "/products.236351428" for 127.0.0.1 at 2023-04-25 11:11:17 -0500
+Processing by ProductsController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  Rendered products/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 266)
+  Rendered shared/_header.html.erb (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | Allocations: 1763)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.2ms | Allocations: 2195)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixtures Load (0.3ms)[0m  [1m[31mDELETE FROM `products`;
+INSERT INTO `products` (`id`, `title`, `description`, `price`, `created_at`, `updated_at`) VALUES (236351428, 'PS4 Fat', 'PS4 como nuevo', 150, '2023-04-25 16:32:30.334765', '2023-04-25 16:32:30.334765'), (803818265, 'Nintendo Switch', 'Le falla lector de tarjeta SD', 195, '2023-04-25 16:32:30.334765', '2023-04-25 16:32:30.334765')[0m
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------------
+ProductsControllerTest: test_render_a_detailed_products_page
+------------------------------------------------------------
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products` WHERE `products`.`id` = 236351428 LIMIT 1[0m
+Started GET "/products.236351428" for 127.0.0.1 at 2023-04-25 11:32:30 -0500
+Processing by ProductsController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  Rendered products/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1099)
+  Rendered shared/_header.html.erb (Duration: 0.3ms | Allocations: 112)
+  Rendered layout layouts/application.html.erb (Duration: 33.5ms | Allocations: 33959)
+Completed 200 OK in 57ms (Views: 35.4ms | ActiveRecord: 0.3ms | Allocations: 40070)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------
+ProductsControllerTest: test_render_a_list_of_products
+------------------------------------------------------
+Started GET "/products" for 127.0.0.1 at 2023-04-25 11:32:30 -0500
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  Rendered products/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 305)
+  Rendered shared/_header.html.erb (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 1.9ms | Allocations: 1802)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.2ms | Allocations: 2155)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixtures Load (0.3ms)[0m  [1m[31mDELETE FROM `products`;
+INSERT INTO `products` (`id`, `title`, `description`, `price`, `created_at`, `updated_at`) VALUES (236351428, 'PS4 Fat', 'PS4 como nuevo', 150, '2023-04-25 16:34:48.135810', '2023-04-25 16:34:48.135810'), (803818265, 'Nintendo Switch', 'Le falla lector de tarjeta SD', 195, '2023-04-25 16:34:48.135810', '2023-04-25 16:34:48.135810')[0m
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------------
+ProductsControllerTest: test_render_a_detailed_products_page
+------------------------------------------------------------
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products` WHERE `products`.`id` = 236351428 LIMIT 1[0m
+Started GET "/products.236351428" for 127.0.0.1 at 2023-04-25 11:34:48 -0500
+Processing by ProductsController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  Rendered products/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1099)
+  Rendered shared/_header.html.erb (Duration: 0.3ms | Allocations: 112)
+  Rendered layout layouts/application.html.erb (Duration: 32.5ms | Allocations: 34516)
+Completed 200 OK in 57ms (Views: 34.2ms | ActiveRecord: 0.3ms | Allocations: 40627)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------
+ProductsControllerTest: test_render_a_list_of_products
+------------------------------------------------------
+Started GET "/products" for 127.0.0.1 at 2023-04-25 11:34:48 -0500
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  Rendered products/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 305)
+  Rendered shared/_header.html.erb (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | Allocations: 1802)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.2ms | Allocations: 2158)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixtures Load (0.3ms)[0m  [1m[31mDELETE FROM `products`;
+INSERT INTO `products` (`id`, `title`, `description`, `price`, `created_at`, `updated_at`) VALUES (236351428, 'PS4 Fat', 'PS4 como nuevo', 150, '2023-04-25 16:35:58.067519', '2023-04-25 16:35:58.067519'), (803818265, 'Nintendo Switch', 'Le falla lector de tarjeta SD', 195, '2023-04-25 16:35:58.067519', '2023-04-25 16:35:58.067519')[0m
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------------
+ProductsControllerTest: test_render_a_detailed_products_page
+------------------------------------------------------------
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products` WHERE `products`.`id` = 236351428 LIMIT 1[0m
+Started GET "/products.236351428" for 127.0.0.1 at 2023-04-25 11:35:58 -0500
+Processing by ProductsController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  Rendered products/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1099)
+  Rendered shared/_header.html.erb (Duration: 0.3ms | Allocations: 112)
+  Rendered layout layouts/application.html.erb (Duration: 31.5ms | Allocations: 33961)
+Completed 200 OK in 56ms (Views: 33.4ms | ActiveRecord: 0.3ms | Allocations: 40071)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------
+ProductsControllerTest: test_render_a_list_of_products
+------------------------------------------------------
+Started GET "/products" for 127.0.0.1 at 2023-04-25 11:35:58 -0500
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  Rendered products/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 305)
+  Rendered shared/_header.html.erb (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | Allocations: 1802)
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.2ms | Allocations: 2158)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixtures Load (0.3ms)[0m  [1m[31mDELETE FROM `products`;
+INSERT INTO `products` (`id`, `title`, `description`, `price`, `created_at`, `updated_at`) VALUES (236351428, 'PS4 Fat', 'PS4 como nuevo', 150, '2023-04-25 16:41:14.437344', '2023-04-25 16:41:14.437344'), (803818265, 'Nintendo Switch', 'Le falla lector de tarjeta SD', 195, '2023-04-25 16:41:14.437344', '2023-04-25 16:41:14.437344')[0m
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------------
+ProductsControllerTest: test_render_a_detailed_products_page
+------------------------------------------------------------
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products` WHERE `products`.`id` = 236351428 LIMIT 1[0m
+Started GET "/products.236351428" for 127.0.0.1 at 2023-04-25 11:41:14 -0500
+Processing by ProductsController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  Rendered products/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1099)
+  Rendered shared/_header.html.erb (Duration: 0.3ms | Allocations: 112)
+  Rendered layout layouts/application.html.erb (Duration: 32.6ms | Allocations: 34602)
+Completed 200 OK in 56ms (Views: 34.2ms | ActiveRecord: 0.3ms | Allocations: 40713)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------
+ProductsControllerTest: test_render_a_list_of_products
+------------------------------------------------------
+Started GET "/products" for 127.0.0.1 at 2023-04-25 11:41:14 -0500
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  Rendered products/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 305)
+  Rendered shared/_header.html.erb (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | Allocations: 1802)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.2ms | Allocations: 2158)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixtures Load (0.2ms)[0m  [1m[31mDELETE FROM `products`;
+INSERT INTO `products` (`id`, `title`, `description`, `price`, `created_at`, `updated_at`) VALUES (236351428, 'PS4 Fat', 'PS4 como nuevo', 150, '2023-04-25 16:46:32.123728', '2023-04-25 16:46:32.123728'), (803818265, 'Nintendo Switch', 'Le falla lector de tarjeta SD', 195, '2023-04-25 16:46:32.123728', '2023-04-25 16:46:32.123728')[0m
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------------
+ProductsControllerTest: test_render_a_detailed_products_page
+------------------------------------------------------------
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products` WHERE `products`.`id` = 236351428 LIMIT 1[0m
+Started GET "/products.236351428" for 127.0.0.1 at 2023-04-25 11:46:32 -0500
+Processing by ProductsController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  Rendered products/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1099)
+  Rendered shared/_header.html.erb (Duration: 0.3ms | Allocations: 112)
+  Rendered layout layouts/application.html.erb (Duration: 31.8ms | Allocations: 34086)
+Completed 200 OK in 57ms (Views: 34.1ms | ActiveRecord: 0.3ms | Allocations: 40197)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------
+ProductsControllerTest: test_render_a_list_of_products
+------------------------------------------------------
+Started GET "/products" for 127.0.0.1 at 2023-04-25 11:46:32 -0500
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  Rendered products/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 305)
+  Rendered shared/_header.html.erb (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | Allocations: 1802)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.2ms | Allocations: 2155)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixtures Load (0.2ms)[0m  [1m[31mDELETE FROM `products`;
+INSERT INTO `products` (`id`, `title`, `description`, `price`, `created_at`, `updated_at`) VALUES (236351428, 'PS4 Fat', 'PS4 como nuevo', 150, '2023-04-25 16:50:08.983026', '2023-04-25 16:50:08.983026'), (803818265, 'Nintendo Switch', 'Le falla lector de tarjeta SD', 195, '2023-04-25 16:50:08.983026', '2023-04-25 16:50:08.983026')[0m
+  [1m[36mTRANSACTION (9.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------------
+ProductsControllerTest: test_render_a_detailed_products_page
+------------------------------------------------------------
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products` WHERE `products`.`id` = 236351428 LIMIT 1[0m
+Started GET "/products.236351428" for 127.0.0.1 at 2023-04-25 11:50:09 -0500
+Processing by ProductsController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  Rendered products/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1099)
+  Rendered shared/_header.html.erb (Duration: 0.3ms | Allocations: 112)
+  Rendered layout layouts/application.html.erb (Duration: 32.7ms | Allocations: 34654)
+Completed 200 OK in 59ms (Views: 34.4ms | ActiveRecord: 0.3ms | Allocations: 40765)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------
+ProductsControllerTest: test_render_a_list_of_products
+------------------------------------------------------
+Started GET "/products" for 127.0.0.1 at 2023-04-25 11:50:09 -0500
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  Rendered products/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 305)
+  Rendered shared/_header.html.erb (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | Allocations: 1802)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.3ms | Allocations: 2158)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixtures Load (0.2ms)[0m  [1m[31mDELETE FROM `products`;
+INSERT INTO `products` (`id`, `title`, `description`, `price`, `created_at`, `updated_at`) VALUES (236351428, 'PS4 Fat', 'PS4 como nuevo', 150, '2023-04-25 16:51:08.715462', '2023-04-25 16:51:08.715462'), (803818265, 'Nintendo Switch', 'Le falla lector de tarjeta SD', 195, '2023-04-25 16:51:08.715462', '2023-04-25 16:51:08.715462')[0m
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------------
+ProductsControllerTest: test_render_a_detailed_products_page
+------------------------------------------------------------
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products` WHERE `products`.`id` = 236351428 LIMIT 1[0m
+Started GET "/products.236351428" for 127.0.0.1 at 2023-04-25 11:51:08 -0500
+Processing by ProductsController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  Rendered products/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1099)
+  Rendered shared/_header.html.erb (Duration: 0.3ms | Allocations: 112)
+  Rendered layout layouts/application.html.erb (Duration: 33.9ms | Allocations: 34546)
+Completed 200 OK in 61ms (Views: 36.8ms | ActiveRecord: 0.3ms | Allocations: 40658)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------
+ProductsControllerTest: test_render_a_list_of_products
+------------------------------------------------------
+Started GET "/products" for 127.0.0.1 at 2023-04-25 11:51:08 -0500
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  Rendered products/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 305)
+  Rendered shared/_header.html.erb (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | Allocations: 1802)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.2ms | Allocations: 2158)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
